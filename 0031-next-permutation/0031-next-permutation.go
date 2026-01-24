@@ -5,7 +5,7 @@ func nextPermutation(nums []int)  {
     largeIdx := n-1
 
     //find the final idx of increasing order
-    for; peakIdx > 0; peakIdx-- {
+    for peakIdx > 0; peakIdx-- {
         if nums[peakIdx-1] < nums[peakIdx] {
             break
         }
@@ -15,7 +15,7 @@ func nextPermutation(nums []int)  {
     //to the element immediate left of the peakIdx
 
     if peakIdx != 0 {
-        for; largeIdx >= peakIdx; largeIdx-- {
+        for largeIdx >= peakIdx; largeIdx-- {
             if nums[peakIdx-1] < nums[largeIdx] {
                 //swap the elements
                 nums[largeIdx], nums[peakIdx-1] = nums[peakIdx-1], nums[largeIdx]
