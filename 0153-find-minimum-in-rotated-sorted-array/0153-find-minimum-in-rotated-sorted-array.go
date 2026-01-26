@@ -1,11 +1,13 @@
 func findMin(nums []int) int {
-    if len(nums) == 1 {
-        return nums[0]
-    } 
-
-    i := len(nums) / 2
-    left := findMin(nums[0:i])
-    right := findMin(nums[i:len(nums)])
-
-    return min(left, right)
+    n := len(nums)
+    low, high := 0, n - 1
+    for low < high {
+        mid := (low + high) / 2
+        if nums[mid] > nums[high] {
+            low = mid + 1
+        } else {
+            high = mid
+        }
+    }
+    return nums[low]
 }
